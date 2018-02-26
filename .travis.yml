@@ -1,0 +1,17 @@
+language: java
+sudo: false
+install: true
+addons:
+   sonarcloud:
+      organization: "madewithpaper-github"
+      token:
+         secure: ab1ff99dd31de531f29948ddfa98c012fe0c17fc
+
+jdk:
+   - oraclejdk8
+script:
+   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+cache:
+   directories:
+   - '$HOME/.m2/repository'
+   - '$HOME/.sonar/cache'
